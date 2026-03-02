@@ -1,0 +1,491 @@
+.user-page {
+  display: grid;
+  gap: var(--space-5);
+  animation: page-enter 320ms ease-out;
+}
+
+.user-page h1 {
+  margin: 0;
+  font-size: clamp(1.24rem, 2.2vw, 1.5rem);
+  letter-spacing: 0.01em;
+}
+
+.page-summary {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  max-width: 820px;
+}
+
+.user-page .panel {
+  background: linear-gradient(178deg, color-mix(in srgb, var(--surface) 98%, transparent), var(--surface-2));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  animation: panel-in 300ms ease both;
+}
+
+.user-page .panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.24);
+  border-color: var(--border-strong);
+}
+
+.user-page .login-panel {
+  max-width: 720px;
+}
+
+.user-page .dashboard-panel {
+  max-width: 900px;
+}
+
+.user-page .simulator-panel {
+  width: 100%;
+}
+
+.user-page .panel h2,
+.user-page .panel h3 {
+  margin: 0 0 0.42rem;
+}
+
+.user-page .panel h2 {
+  font-size: 1rem;
+}
+
+.user-page .panel h3 {
+  font-size: 0.92rem;
+}
+
+.user-page .table-title {
+  margin: 0 0 0.95rem;
+  color: var(--text-soft);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+}
+
+.user-page .onboarding-note {
+  border: 1px solid color-mix(in srgb, var(--brand) 30%, var(--border));
+  background: color-mix(in srgb, var(--surface-muted) 46%, transparent);
+  border-radius: 10px;
+  padding: 0.58rem 0.68rem;
+  margin: 0 0 0.82rem;
+}
+
+.user-page .onboarding-note p {
+  margin: 0 0 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.user-page .onboarding-note ol {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--text-secondary);
+  font-size: 0.79rem;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.user-page label {
+  display: inline-block;
+  margin-bottom: 0.36rem;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.user-page input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.62rem 0.66rem;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  margin-bottom: 0.82rem;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.user-page input:focus-visible {
+  outline: 0;
+  border-color: color-mix(in srgb, var(--brand) 52%, var(--border-strong));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.user-page button {
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-muted) 80%, transparent);
+  color: var(--text-primary);
+  border-radius: 10px;
+  padding: 0.5rem 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.user-page button:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
+}
+
+.user-page button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.user-page .login-panel button {
+  background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+  color: #fff;
+  border-color: color-mix(in srgb, var(--brand) 60%, var(--border));
+}
+
+.user-page .login-panel button:hover {
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.user-page .banner {
+  border-radius: 10px;
+  padding: 0.68rem 0.82rem;
+  margin: 0;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  animation: toast-in 200ms ease-out;
+}
+
+.user-page .banner.error {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  border-color: color-mix(in srgb, var(--danger) 34%, transparent);
+}
+
+.user-page .kv-list {
+  display: grid;
+  gap: 0.46rem;
+  margin-bottom: 0.78rem;
+}
+
+.user-page .kv-list > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
+  padding-bottom: 0.42rem;
+}
+
+.user-page .kv-list > div span {
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+}
+
+.user-page .kv-list > div strong {
+  font-weight: 700;
+  text-align: right;
+}
+
+.user-page .strategy-heading {
+  border-top: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  margin-top: 0.75rem;
+  padding-top: 0.62rem;
+}
+
+.user-page .value-block {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0 0 0.72rem;
+  color: color-mix(in srgb, var(--brand) 72%, var(--text-primary));
+}
+
+.user-page .inline-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.62rem;
+  align-items: flex-end;
+  margin-bottom: 0.95rem;
+}
+
+.user-page .inline-form label {
+  margin: 0;
+}
+
+.user-page .inline-form input {
+  width: 144px;
+  margin: 0;
+}
+
+.user-page .inline-form button {
+  align-self: stretch;
+  min-height: 40px;
+}
+
+.user-page .summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.72rem;
+  margin-bottom: 0.9rem;
+}
+
+.user-page .metric-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.32rem;
+  padding: 0.86rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 97%, transparent);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+  position: relative;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.user-page .metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 12px 12px 0 0;
+  opacity: 0.9;
+}
+
+.user-page .metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.2);
+}
+
+.user-page .metric-label {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+.user-page .metric-value {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.user-page .metric-badge {
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 0.18rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.18rem 0.46rem;
+  font-size: 0.67rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-page .metric-card--total {
+  border-color: color-mix(in srgb, var(--brand) 24%, var(--border));
+}
+
+.user-page .metric-card--total::before {
+  background: color-mix(in srgb, var(--brand) 60%, var(--text-soft));
+}
+
+.user-page .metric-card--total .metric-value {
+  color: color-mix(in srgb, var(--brand) 52%, var(--text-primary));
+}
+
+.user-page .metric-badge--total {
+  color: var(--text-secondary);
+  border-color: color-mix(in srgb, var(--text-soft) 30%, transparent);
+  background: color-mix(in srgb, var(--surface-muted) 62%, transparent);
+}
+
+.user-page .metric-card--allowed {
+  border-color: color-mix(in srgb, var(--success) 32%, var(--border));
+}
+
+.user-page .metric-card--allowed::before {
+  background: var(--success);
+}
+
+.user-page .metric-card--allowed .metric-value {
+  color: var(--success);
+}
+
+.user-page .metric-badge--allowed {
+  color: var(--success);
+  border-color: color-mix(in srgb, var(--success) 42%, transparent);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+}
+
+.user-page .metric-card--blocked {
+  border-color: color-mix(in srgb, var(--danger) 35%, var(--border));
+}
+
+.user-page .metric-card--blocked::before {
+  background: var(--danger);
+}
+
+.user-page .metric-card--blocked .metric-value {
+  color: var(--danger);
+}
+
+.user-page .metric-badge--blocked {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 42%, transparent);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+}
+
+.user-page .metric-card--unauthorized {
+  border-color: color-mix(in srgb, #d18a2b 34%, var(--border));
+}
+
+.user-page .metric-card--unauthorized::before {
+  background: #d18a2b;
+}
+
+.user-page .metric-card--unauthorized .metric-value {
+  color: #d18a2b;
+}
+
+.user-page .metric-badge--unauthorized {
+  color: #d18a2b;
+  border-color: color-mix(in srgb, #d18a2b 40%, transparent);
+  background: color-mix(in srgb, #d18a2b 13%, transparent);
+}
+
+.user-page .log-list {
+  background: color-mix(in srgb, var(--surface-muted) 72%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.user-page .other-error-note {
+  margin: -0.2rem 0 0.8rem;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+}
+
+.user-page .log-list-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  color: var(--text-soft);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.user-page .log-list p {
+  margin: 0;
+  padding: 0.3rem 0.7rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-primary);
+}
+
+.user-page .log-list p:nth-child(even) {
+  background: color-mix(in srgb, var(--surface) 38%, transparent);
+}
+
+.user-page .log-list p:last-child {
+  border-bottom: 0;
+}
+
+.user-page .inactive-warning {
+  border: 1px solid color-mix(in srgb, var(--danger) 34%, transparent);
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  border-radius: 10px;
+  padding: 0.56rem 0.7rem;
+  margin-bottom: 0.72rem;
+  font-weight: 700;
+}
+
+.user-page .muted {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .user-page .panel {
+    padding: 1.2rem;
+  }
+
+  .user-page .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .user-page .panel {
+    padding: 1rem;
+  }
+
+  .user-page .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .user-page,
+  .user-page .panel,
+  .banner,
+  .user-page button,
+  .user-page .metric-card {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}

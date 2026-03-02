@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  --bg-main: #f1f4fa;
+  --bg-accent-1: rgba(16, 111, 250, 0.09);
+  --bg-accent-2: rgba(8, 168, 132, 0.09);
+  --bg-accent-3: rgba(242, 133, 59, 0.08);
+  --surface: rgba(255, 255, 255, 0.92);
+  --surface-2: #ffffff;
+  --surface-muted: #eff5ff;
+  --text-primary: #0f223d;
+  --text-secondary: #4b607f;
+  --text-soft: #6f83a2;
+  --border: rgba(128, 154, 193, 0.35);
+  --border-strong: rgba(104, 136, 181, 0.55);
+  --brand: #0d72f2;
+  --brand-strong: #2c4cca;
+  --success: #0a9b62;
+  --danger: #cc4a4a;
+  --shadow: 0 12px 32px rgba(26, 62, 122, 0.08);
+  --shadow-hover: 0 20px 45px rgba(18, 47, 94, 0.16);
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3.5rem;
+}
+
+:root[data-theme='dark'] {
+  --bg-main: #070f1f;
+  --bg-accent-1: rgba(73, 150, 255, 0.13);
+  --bg-accent-2: rgba(35, 203, 152, 0.12);
+  --bg-accent-3: rgba(240, 151, 87, 0.1);
+  --surface: rgba(16, 29, 48, 0.86);
+  --surface-2: #0f1d34;
+  --surface-muted: #152947;
+  --text-primary: #eaf2ff;
+  --text-secondary: #a4b9db;
+  --text-soft: #7f96bf;
+  --border: rgba(67, 102, 157, 0.45);
+  --border-strong: rgba(90, 128, 186, 0.75);
+  --brand: #63a0ff;
+  --brand-strong: #87b6ff;
+  --success: #54d6a3;
+  --danger: #ff9292;
+  --shadow: 0 22px 44px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 26px 55px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background:
+    radial-gradient(circle at 14% 10%, var(--bg-accent-1), transparent 42%),
+    radial-gradient(circle at 86% 16%, var(--bg-accent-3), transparent 38%),
+    radial-gradient(circle at 84% 82%, var(--bg-accent-2), transparent 50%),
+    var(--bg-main);
+  background-attachment: fixed;
+  line-height: 1.45;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+*::selection {
+  background: color-mix(in srgb, var(--brand) 22%, transparent);
+}
