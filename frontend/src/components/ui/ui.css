@@ -190,9 +190,76 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ui-button,
-  .ui-card {
-    transition: none;
-    transform: none;
-  }
+.ui-button,
+.ui-card {
+  transition: none;
+  transform: none;
+}
+}
+
+.endpoint-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  cursor: help;
+  position: relative;
+  padding: 0.08rem 0.32rem;
+  border-radius: 999px;
+  border: 1px dashed transparent;
+}
+
+.endpoint-hint:focus-visible,
+.endpoint-hint:hover {
+  outline: none;
+  border-color: var(--border-strong);
+}
+
+.endpoint-pill {
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-muted) 65%, transparent);
+  border: 1px solid var(--border);
+}
+
+.endpoint-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.4rem);
+  transform: translateX(-50%);
+  min-width: 210px;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  text-align: left;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 95%, transparent), var(--surface-2));
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-primary);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.38);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  transform-origin: bottom center;
+}
+
+.endpoint-hint:hover .endpoint-tooltip,
+.endpoint-hint:focus-visible .endpoint-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-0.2rem);
+  pointer-events: auto;
+}
+
+.endpoint-tooltip strong {
+  font-size: 0.82rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.endpoint-detail {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
 }

@@ -4,6 +4,7 @@ import { callProtectedTest, getUserProfile } from '../api/client';
 import { getPanelId, getTabId, Tabs } from '../components/ui/tabs';
 import { useToast } from '../components/ui/toast';
 import './user.css';
+import EndpointHint from '../components/ui/endpoint-hint';
 
 const APP_TABS = ['API Key Login', 'User Dashboard', 'Request Simulator'];
 const SESSION_ERROR_MESSAGES = new Set(['Authentication required', 'Access denied']);
@@ -200,7 +201,9 @@ const UserPage = () => {
           aria-labelledby={getTabId('user-sections', 'API Key Login')}
         >
           <h2>API Key Login</h2>
-          <p className="table-title">GET /profiles/user with X-API-KEY</p>
+          <p className="table-title">
+            <EndpointHint method="GET" path="/profiles/user" detail="requires X-API-KEY header" />
+          </p>
           <div className="onboarding-note">
             <p>No API key yet?</p>
             <ol>
@@ -230,7 +233,9 @@ const UserPage = () => {
           aria-labelledby={getTabId('user-sections', 'User Dashboard')}
         >
           <h2>User Dashboard</h2>
-          <p className="table-title">GET /profiles/user</p>
+          <p className="table-title">
+            <EndpointHint method="GET" path="/profiles/user" />
+          </p>
           {!isLoggedIn && <p className="muted">Log in with an API key to load dashboard data.</p>}
 
           {isLoggedIn && (
@@ -275,7 +280,9 @@ const UserPage = () => {
           aria-labelledby={getTabId('user-sections', 'Request Simulator')}
         >
           <h2>Request Simulator</h2>
-          <p className="table-title">GET /api/protected/test repeatedly</p>
+          <p className="table-title">
+            <EndpointHint method="GET" path="/api/protected/test" detail="repeatable simulation" />
+          </p>
           {!sessionApiKey && <p className="muted">Log in with an API key first. Ask admin to generate one from Admin → API Keys.</p>}
 
           <div className="inline-form">

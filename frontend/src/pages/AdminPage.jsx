@@ -17,6 +17,7 @@ import { getPanelId, getTabId, Tabs } from '../components/ui/tabs';
 import MetricsOverviewChart from '../components/charts/MetricsOverviewChart';
 import { useToast } from '../components/ui/toast';
 import './admin.css';
+import EndpointHint from '../components/ui/endpoint-hint';
 
 const POLL_INTERVAL_MS = 10000;
 const API_KEYS_PAGE_SIZE = 5;
@@ -400,7 +401,9 @@ const AdminPage = () => {
         >
           <article className="panel">
             <h2>Infrastructure Status</h2>
-            <p className="table-title">GET /actuator/health</p>
+            <p className="table-title">
+              <EndpointHint method="GET" path="/actuator/health" detail="infrastructure health" />
+            </p>
             <div className="kv-list">
               <div>
                 <span>Overall Status</span>
@@ -419,7 +422,9 @@ const AdminPage = () => {
 
           <article className="panel strategy-overview-panel">
             <h2>Active Rate Limit Strategies</h2>
-            <p className="table-title">GET /profiles/admin</p>
+            <p className="table-title">
+              <EndpointHint method="GET" path="/profiles/admin" detail="strategy overview" />
+            </p>
             <div className="kv-list strategy-kv-list">
               <div>
                 <span>Global Strategy</span>
@@ -438,7 +443,9 @@ const AdminPage = () => {
 
           <article className="panel panel-wide">
             <h2>Metrics Summary</h2>
-            <p className="table-title">GET /admin/metrics/summary (persisted)</p>
+            <p className="table-title">
+              <EndpointHint method="GET" path="/admin/metrics/summary" detail="persisted totals" />
+            </p>
             <div className="metrics-global-summary" aria-label="Global metrics summary">
               <div>
                 <span>Total Requests</span>
@@ -525,7 +532,9 @@ const AdminPage = () => {
         >
           <article className="panel">
             <h2>Create New API Key</h2>
-            <p className="table-title">POST /api/keys</p>
+            <p className="table-title">
+              <EndpointHint method="POST" path="/api/keys" detail="create key by plan" />
+            </p>
             <fieldset className="radio-set">
               <legend>Select Plan</legend>
               <label>
@@ -575,7 +584,9 @@ const AdminPage = () => {
 
           <article className="panel">
             <h2>Lookup Existing Key</h2>
-            <p className="table-title">GET /api/keys/{'{id}'}</p>
+            <p className="table-title">
+              <EndpointHint method="GET" path="/api/keys/{id}" detail="fetch by UUID" />
+            </p>
             <div className="inline-form">
               <input
                 value={lookupId}
@@ -586,6 +597,7 @@ const AdminPage = () => {
                 Fetch
               </button>
             </div>
+            <p className="lookup-helper">First fetch the key if you wish to deactivate it.</p>
 
             {lookupResult && (
               <div className="kv-list">
@@ -608,14 +620,18 @@ const AdminPage = () => {
               </div>
             )}
 
-            <button type="button" onClick={onDeactivateKey} disabled={!lookupResult || !lookupResult.active}>
-              Deactivate Key
-            </button>
+            {lookupResult && (
+              <button type="button" onClick={onDeactivateKey} disabled={!lookupResult.active}>
+                Deactivate Key
+              </button>
+            )}
           </article>
 
           <article className="panel panel-wide">
             <h2>All API Keys</h2>
-            <p className="table-title">GET /api/keys</p>
+            <p className="table-title">
+              <EndpointHint method="GET" path="/api/keys" detail="list keys" />
+            </p>
             <div className="api-keys-toolbar">
               <label>
                 Sort by Plan
@@ -714,7 +730,9 @@ const AdminPage = () => {
         >
           <article className="panel strategy-panel">
             <h2>Global Strategy</h2>
-            <p className="table-title">GET /admin/strategy</p>
+            <p className="table-title">
+              <EndpointHint method="GET" path="/admin/strategy" detail="current strategy" />
+            </p>
             <p className="value-block">{globalStrategy || '-'}</p>
             <fieldset className="radio-set">
               <legend>Change Global Strategy</legend>
@@ -738,7 +756,9 @@ const AdminPage = () => {
 
           <article className="panel plan-overrides-panel">
             <h2>Plan-Specific Overrides</h2>
-            <p className="table-title">POST /admin/strategy?plan=...</p>
+            <p className="table-title">
+              <EndpointHint method="POST" path="/admin/strategy" detail="override global or plan" />
+            </p>
             <div className="plan-overrides-grid">
               <section className="plan-block plan-override-card">
                 <h3><span className="plan-badge">FREE</span> Plan</h3>
@@ -790,7 +810,9 @@ const AdminPage = () => {
 
           <article className="panel panel-wide admin-debug-panel">
             <h2>Admin Debug</h2>
-            <p className="table-title">GET /admin/strategy/debug</p>
+            <p className="table-title">
+              <EndpointHint method="GET" path="/admin/strategy/debug" detail="runtime state" />
+            </p>
             <pre>{JSON.stringify(debugPayload || {}, null, 2)}</pre>
           </article>
         </div>
@@ -805,7 +827,9 @@ const AdminPage = () => {
         >
           <article className="panel">
             <h2>System Health</h2>
-            <p className="table-title">GET /actuator/health</p>
+            <p className="table-title">
+              <EndpointHint method="GET" path="/actuator/health" detail="infrastructure health" />
+            </p>
             <div className="kv-list">
               <div>
                 <span>Overall Status</span>
@@ -834,7 +858,9 @@ const AdminPage = () => {
                 Refresh Logs
               </button>
             </div>
-            <p className="table-title">GET /admin/audit/logs</p>
+            <p className="table-title">
+              <EndpointHint method="GET" path="/admin/audit/logs" detail="latest admin actions" />
+            </p>
             <div className="table-wrap">
               <table>
                 <thead>

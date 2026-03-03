@@ -180,4 +180,3 @@ API keys are created from Admin → API Keys and then pasted into the user porta
 - Backend entry: `src/main/java/com/kailas/polaris/PolarisApplication.java`
 - Screenshot helper: `scripts/capture-screenshots.js`
 - Docker compose orchestrates Postgres + Redis (`docker-compose.yml`).
-
