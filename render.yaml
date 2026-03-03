@@ -6,10 +6,8 @@ services:
 
   - type: web
     name: polaris-api
-    runtime: java
+    runtime: docker
     plan: free
-    buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -Dserver.port=$PORT -jar target/polaris-0.0.1-SNAPSHOT.jar
     healthCheckPath: /actuator/health
     envVars:
       - key: SPRING_DATASOURCE_URL
@@ -60,6 +58,5 @@ databases:
   - name: polaris-postgres
     plan: free
     databaseName: polaris
-    user: postgres
     postgresMajorVersion: "15"
     ipAllowList: []
