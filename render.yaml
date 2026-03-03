@@ -43,7 +43,6 @@ services:
   - type: web
     name: polaris-frontend
     runtime: static
-    plan: free
     buildCommand: cd frontend && npm ci && npm run build
     staticPublishPath: ./frontend/dist
     envVars:
